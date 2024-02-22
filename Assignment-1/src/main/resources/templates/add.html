@@ -23,6 +23,13 @@
         .form-group {
             margin-bottom: 20px;
         }
+        .row {
+            align-content: center;
+            text-align: center;
+        }
+        .col-1{
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
@@ -30,10 +37,12 @@
 <div class="container mt-5">
     <div class="form-container">
         <h1>Fashion Item Form</h1>
+        <div class="row">
         <form method="post" th:object="${clothing}">
             <div th:if="${#fields.hasErrors()}">
                 <span> Please correct the problems below and resubmit. </span>
             </div>
+            <div class="col-1">
              <label for="id" class="form-label">ID</label>
                 <input
                         type="text"
@@ -49,6 +58,8 @@
                 >
                     id error
                 </span>
+            </div>
+            <div class="col-1">
                 <label for="clothingName" class="form-label">Name</label>
                 <input
                         type="text"
@@ -67,6 +78,8 @@
                 >
                     Name error
                 </span>
+            </div>
+            <div class="col-1">
                 <label class="form-label">Brand</label>
                 <select
                         th:field="*{brandForm}"
@@ -79,6 +92,8 @@
                             th:text="${brand.title}"
                     />
                 </select>
+            </div>
+            <div class="col-1">
                 <label for="itemYear" class="form-label">Year of Creation</label>
                 <input
                         type="number"
@@ -95,6 +110,8 @@
                         th:errors="*{yearOfCreation}"
                 >Year Must Be Grater Then 2021
           </span>
+            </div>
+            <div class="col-1">
                 <label for="itemPrice" class="form-label">Price</label>
                 <input
                         type="number"
@@ -109,8 +126,12 @@
                 >
                     Price Error
                 </span>
+            </div>
+            <div class="col-1">
             <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
         </form>
+        </div>
     </div>
 </div>
 
